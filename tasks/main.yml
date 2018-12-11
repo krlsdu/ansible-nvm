@@ -8,6 +8,7 @@
   tags: nvm
 
 - name: Install nvm {{ nvm_version }}
+  become_user: "{{ lookup('env', 'USER') }}"
   git:
     repo: https://github.com/creationix/nvm.git
     dest: "{{ nvm_install_path }}"
